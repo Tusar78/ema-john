@@ -3,9 +3,26 @@
 @tailwind utilities;
 
 @layer components {
+  .navbar {
+    @apply w-full bg-[#1C2B35];
+  }
 
+  .nav {
+    @apply max-w-screen-xl h-20 mx-auto flex justify-between items-center px-4 xl:px-0;
+  }
+
+  .nav__list {
+    @apply flex space-x-7
+  }
+
+  .nav__link {
+    @apply text-white text-base tracking-tight;
+  }
 }
 
 @layer utilities {
-  
+  .nav__logo-img {
+    width: 140px;
+    height: 40px;
+  }
 }
