@@ -1,7 +1,13 @@
-import React from "react";
-import { MdMenuOpen } from "react-icons/md";
+import React, { useState } from "react";
+import { MdOutlineMenu, MdOutlineClose } from "react-icons/md";
 
 const Navbar = () => {
+  const [toggle, setToggle] = useState(false);
+  console.log(toggle);
+
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
   return (
     <div className="navbar">
       <nav className="nav">
@@ -13,7 +19,7 @@ const Navbar = () => {
           />
         </a>
 
-        <div className="nav__menu">
+        <div className={toggle ? "nav__menu block" : "nav__menu hidden sm:block"}>
           <ul className="nav__list">
             <li className="nav__item">
               <a href="#order" className="nav__link">
@@ -38,8 +44,12 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="nav__toggle">
-          <MdMenuOpen className="nav__toggle-icon" />
+        <div className="nav__toggle" onClick={handleToggle}>
+          {toggle ? (
+            <MdOutlineClose className="nav__toggle-icon" />
+          ) : (
+            <MdOutlineMenu className="nav__toggle-icon" />
+          )}
         </div>
       </nav>
     </div>
