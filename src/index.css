@@ -4,19 +4,32 @@
 
 @layer components {
   .navbar {
-    @apply w-full bg-[#1C2B35];
+    @apply w-full bg-[#1C2B35] relative;
   }
-
+ 
   .nav {
     @apply max-w-screen-xl h-20 mx-auto flex justify-between items-center px-4 xl:px-0;
   }
 
+  .nav__menu {
+    @apply absolute sm:static w-56 sm:w-max top-16 sm:top-auto right-2 sm:right-0 p-4 rounded sm:rounded-none bg-gray-700 sm:bg-inherit;
+  }
+
+
   .nav__list {
-    @apply flex space-x-7
+    @apply block sm:flex sm:space-x-7 space-y-2 sm:space-y-0;
   }
 
   .nav__link {
-    @apply text-white text-base tracking-tight;
+    @apply text-gray-300 block border sm:border-0 border-gray-600 rounded-md p-2 sm:text-white text-base tracking-tight;
+  }
+
+  .nav__toggle {
+    @apply block sm:hidden;
+  }
+
+  .nav__toggle-icon {
+    @apply text-3xl text-white cursor-pointer;
   }
 }
 
@@ -24,5 +37,14 @@
   .nav__logo-img {
     width: 140px;
     height: 40px;
+  }
+
+  .nav__menu::after {
+    content: '';
+    position: absolute;
+    top: -28px;
+    right: 13px;
+    border: 14px solid;
+    border-color: transparent transparent #374151 transparent;
   }
 }

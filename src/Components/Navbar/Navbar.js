@@ -1,4 +1,5 @@
 import React from "react";
+import { MdMenuOpen } from "react-icons/md";
 
 const Navbar = () => {
   return (
@@ -35,6 +36,10 @@ const Navbar = () => {
               </a>
             </li>
           </ul>
+        </div>
+
+        <div className="nav__toggle">
+          <MdMenuOpen className="nav__toggle-icon" />
         </div>
       </nav>
     </div>
