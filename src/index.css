@@ -13,7 +13,7 @@
   }
 
   .nav__menu {
-    @apply hidden sm:block absolute sm:static w-56 sm:w-max top-16 sm:top-auto right-2 sm:right-0 p-4 rounded sm:rounded-none bg-gray-700 sm:bg-inherit z-10;
+    @apply hidden sm:block absolute sm:static w-56 sm:w-max top-16 sm:top-auto right-2 sm:right-0 p-4 sm:p-0 rounded sm:rounded-none bg-gray-700 sm:bg-inherit z-10;
   }
 
   .nav__list {
@@ -58,7 +58,40 @@
   }
 
   .home__img-container {
-    @apply justify-self-center  order-1 sm:order-2;
+    @apply justify-self-center order-1 sm:order-2;
+  }
+
+  /*==== Shopping Cart Design ====*/
+  .shop {
+    @apply w-full mt-4 relative;
+  }
+
+  .products {
+    @apply max-w-screen-xl mx-auto grid grid-cols-[1fr_230px];
+  }
+
+  .product__container {
+    @apply grid gap-y-8;
+  }
+
+  .product {
+    @apply w-[18.75rem] h-[31.75rem] border border-[#95A0A7] rounded-lg p-2;
+  }
+
+  .product__img {
+    @apply rounded-lg;
+  }
+
+  .product__info {
+    @apply mt-3;
+  }
+
+  .product__title {
+    @apply text-[#0E161A] text-xl lowercase first-letter:uppercase font-semibold;
+  }
+
+  .product__price {
+    @apply text-[#0E161A] text-base;
   }
 }
 
@@ -86,5 +119,10 @@
   .home__img {
     border-radius: 10px;
     box-shadow: -14px 14px 0 #ffe0b3;
+  }
+
+  /*==== Shop Section design ====*/
+  .product__container {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
   }
 }
