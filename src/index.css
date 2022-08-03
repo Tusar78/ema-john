@@ -5,7 +5,7 @@
 @layer components {
   /*==== Navbar Design ====*/
   .navbar {
-    @apply w-full bg-[#1C2B35] relative;
+    @apply w-full bg-[#1C2B35] fixed top-0 left-0 z-50;
   }
 
   .nav {
@@ -63,11 +63,11 @@
 
   /*==== Shopping Cart Design ====*/
   .shop {
-    @apply w-full mt-4 relative;
+    @apply w-full relative;
   }
 
   .products {
-    @apply max-w-screen-xl mx-auto px-4 xl:px-0 grid grid-cols-[1fr_230px];
+    @apply max-w-screen-xl pt-24 mx-auto px-4 xl:px-0 grid grid-cols-[1fr_230px];
   }
 
   .product__container {
@@ -75,7 +75,7 @@
   }
 
   .product {
-    @apply w-[18.75rem] h-[31.75rem] border border-[#95A0A7] rounded-lg p-2 relative;
+    @apply w-[18.75rem] h-[31.75rem] border border-[#95A0A7] rounded-lg p-2 relative bg-white;
   }
 
   .product__img {
@@ -109,6 +109,26 @@
   .product__icon {
     @apply text-xl;
   }
+
+  .cart-info {
+    @apply fixed top-16 p-6 right-0 bg-[#FF9900] bg-opacity-30 h-screen;
+  }
+
+  .cart__summery {
+    @apply text-2xl text-[#1C2B35] text-center;
+  }
+
+  .card__description {
+    @apply mt-8 space-y-3;
+  }
+
+  .cart__grand-total {
+    @apply text-xl text-[#0E161A] mt-6; 
+  }
+
+  /* .card__desc-single {
+    @apply 
+  } */
 }
 
 @layer utilities {
