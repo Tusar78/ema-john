@@ -67,7 +67,7 @@
   }
 
   .products {
-    @apply max-w-screen-xl mx-auto grid grid-cols-[1fr_230px];
+    @apply max-w-screen-xl mx-auto px-4 xl:px-0 grid grid-cols-[1fr_230px];
   }
 
   .product__container {
