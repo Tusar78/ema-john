@@ -16,10 +16,10 @@ const Product = ({ product }) => {
         <p className="product__seller">Manufacturer: {seller}</p>
         <p className="product__rating">Rating: {ratings}</p>
       </div>
-      
+
       <button type="button" className="product__btn">
         <span>Add to cart</span>
-        <FaCartPlus className="product__name" />
+        <FaCartPlus className="product__icon" />
       </button>
     </div>
   );
