@@ -9,7 +9,7 @@ const Home = () => {
         <span className="home__subtitle">Discover all the new arrivals of ready-to-wear collection.</span>
         <button type='button' className='home__btn'>Shop Now</button>
       </div>
-      <div>
+      <div className="home__img-container">
         <img src="images/hero-img.png" alt="" className="home__img" />
       </div>
     </section>
