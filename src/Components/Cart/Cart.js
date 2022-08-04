@@ -18,7 +18,7 @@ const Cart = () => {
           <AiOutlineDelete className='cart__btn-icon' />
         </button>
         <button type="button" className="cart__btn cart__btn--yellow">
-          <span>Clear Cart</span>
+          <span>Review Order</span>
           <AiOutlineArrowRight className='cart__btn-icon' />
         </button>
       </div>
