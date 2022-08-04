@@ -142,6 +142,10 @@
     @apply bg-[#FF9900] text-white;
   }
 
+  .cart__btn-icon {
+    @apply text-xl;
+  }
+
 }
 
 @layer utilities {
