@@ -131,7 +131,15 @@
   }
 
   .cart__btn {
-    @apply w-full h-12 flex items-center justify-center space-x-2 text-base;
+    @apply w-full h-12 flex items-center justify-center space-x-2 text-base rounded;
+  }
+
+  .cart__btn--danger {
+    @apply bg-[#FF3030] text-white;
+  }
+
+  .cart__btn--yellow {
+    @apply bg-[#FF9900] text-white;
   }
 
 }
