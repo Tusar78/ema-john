@@ -127,7 +127,11 @@
   }
 
   .cart__buttons {
-    @apply mt-12 skew-y-3;
+    @apply mt-12 space-y-3;
+  }
+
+  .cart__btn {
+    @apply w-full h-12 flex items-center justify-center space-x-2 text-base;
   }
 
 }
