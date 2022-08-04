@@ -126,9 +126,10 @@
     @apply text-xl text-[#0E161A] mt-6; 
   }
 
-  /* .card__desc-single {
-    @apply 
-  } */
+  .cart__buttons {
+    @apply mt-12 skew-y-3;
+  }
+
 }
 
 @layer utilities {
