@@ -9,12 +9,16 @@ const Shop = () => {
       .then(res => res.json())
       .then(data => setProducts(data))
   }, [products])
+
+  const handleClick = product => {
+    console.log(product);
+  }
   return (
     <section className='shop'>
       <div className="products">
         <div className="product__container">
           {
-            products.map(product => <Product key={product.id} product={product} />)
+            products.map(product => <Product key={product.id} product={product} handleClick={handleClick} />)
           }
         </div>
         <div className="blank"></div>

@@ -3,7 +3,6 @@ import { MdOutlineMenu, MdOutlineClose } from "react-icons/md";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
-  console.log(toggle);
 
   const handleToggle = () => {
     setToggle(!toggle);
