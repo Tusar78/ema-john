@@ -13,7 +13,19 @@ const Shop = () => {
       .then(data => setProducts(data))
   }, [])
 
-  
+  useEffect(() => {
+    const storedCart = getLocalStorage();
+    const saveCart = [];
+    for (const id in storedCart) {
+      const rest = products.find(product => product.id === id);
+      if (rest) {
+        const quantity = storedCart[id];
+        rest.quantity = quantity;
+        saveCart.push(rest)
+      }
+    }
+    setCart(saveCart)
+  }, [products])
   const handleAddToCart = selectedProduct => {
     let newCart = [];
     const exits = cart.find(product => product.id === selectedProduct.id);
