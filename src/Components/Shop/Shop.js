@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { addToDB } from '../../FakeDB/FakeDB';
+import { addToDB, getLocalStorage } from '../../FakeDB/FakeDB';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 
@@ -14,8 +14,18 @@ const Shop = () => {
   }, [])
 
   useEffect(() => {
-    
-  }, [])
+    const storedCart = getLocalStorage();
+    const saveCart = [];
+    for (const id in storedCart) {
+      const rest = products.find(product => product.id === id);
+      if (rest) {
+        const quantity = storedCart[id];
+        rest.quantity = quantity;
+        saveCart.push(rest);
+      }
+    }
+    setCart(saveCart)
+  }, [products])
 
   const handleAddToCart = selectedProduct => {
     let newCart = [];
