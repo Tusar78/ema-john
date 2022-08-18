@@ -148,11 +148,15 @@
 
   /* Order Review Section */
   .order-review {
-    @apply max-w-screen-lg px-4 lg:px-0 mt-24 mx-auto;
+    @apply max-w-screen-lg w-full px-4 xl:px-0 mt-24 mx-auto grid gap-12 mb-8 md:grid-cols-2 lg:gap-16;
+  }
+
+  .order-review__items {
+    @apply grid gap-4;
   }
 
   .order-review__item {
-    @apply border rounded-md p-2 flex justify-between items-center;
+    @apply border rounded-md p-2 flex justify-between items-center md:h-20 lg:h-min lg:pr-3;
   }
   
   .order-review__item-info {
@@ -160,24 +164,56 @@
   }
 
   .order-review__img {
-    @apply w-16 h-16 rounded-md
+    @apply w-16 h-16 rounded-md lg:w-20 lg:h-20;
   }
 
   .order-review__name {
-    @apply text-base;
+    @apply text-base lowercase first-letter:uppercase lg:text-xl;
   }
 
   .order-review__price,
   .order-review__shipping {
-    @apply text-xs;
+    @apply text-xs lg:text-sm;
   }  
+
+  .order-review__price {
+    @apply flex items-center space-x-2;
+  }
+
+  .order-review__quantity {
+    @apply flex items-center;
+  }
 
   .order-review__item-delete-btn {
     @apply w-10 h-10 flex items-center justify-center bg-[#EB5757]/30 rounded-full outline-none cursor-pointer;
   }
 
   .order-review__icon {
-    @apply text-base text-[#EB5757];
+    @apply text-base text-[#EB5757] lg:text-[1.125rem];
+  }
+
+  .order-review__cart {
+    @apply bg-[#FF9900]/30 p-4 rounded-md md:max-h-[27rem] lg:w-[400px] lg:max-h-[29rem];
+  }
+
+  .order-review__cart .cart .card__description, .order-review__cart .cart .cart__summery, .order-review__cart .cart .cart__grand-total  {
+    @apply px-5;
+  }
+
+  .order-review__cart .cart .card__description .card__desc-single {
+    @apply lg:text-[18px];
+  }
+
+  .order-review__cart .cart .cart__grand-total {
+    @apply lg:text-xl;
+  }
+
+  .order-review__cart .cart .cart__summery {
+    @apply text-left lg:text-3xl mt-3 text-[#1C2B35];
+  }
+
+  .order-review__cart .cart .cart__btn {
+    @apply justify-between px-4;
   }
 
 }
@@ -214,5 +250,11 @@
   /*==== Shop Section design ====*/
   .product__container {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+  }
+
+  @media screen and (min-width: 1023.98px) {
+    .order-review {
+      grid-template-columns: 1fr auto;
+    }
   }
 }

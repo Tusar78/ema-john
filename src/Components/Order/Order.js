@@ -1,35 +1,40 @@
 import React from "react";
-import { FaTrash } from "react-icons/fa";
+import Cart from "../Cart/Cart";
+import useCart from "../../Hooks/useCart";
+import useProducts from "../../Hooks/useProducts";
+import { Link } from "react-router-dom";
+import ReviewItem from "../ReviewItem/ReviewItem";
+import { FaRegCreditCard, FaTrash } from "react-icons/fa";
 
 const Order = () => {
+  const [Products, setProducts] = useProducts();
+  const [cart, setCart] = useCart(Products);
   return (
     <section className="section order-review">
-      <div className="order-review__item">
-        <div className="order-review__item-info">
-          <img
-            src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/2cee64414e1f4f31baf1ae270099d950_9366/Lunar_New_Year_Ultraboost_DNA_Shoes_Black_GZ6074_01_standard.jpg"
-            alt="images"
-            className="order-review__img"
-          />
-          <div className="order-review__description">
-            <h4 className="order-review__name">Ultraboost 22 Shoes</h4>
-            <p className="order-review__price">
-              Price:
-              <span className="text-[#FF9900]">$190</span>
-            </p>
-            <p className="order-review__shipping">
-              Shipping Charge:
-              <span className="text-[#FF9900]">$190</span>
-            </p>
-          </div>
-        </div>
-        <div className="order-review__item-delete">
-          <button className="order-review__item-delete-btn">
-            <FaTrash className="order-review__icon" />
-          </button>
-        </div>
+      <div className="order-review__items">
+        {
+          cart.map(product => <ReviewItem key={cart.id} product={product} />)
+        }
       </div>
-      <div className="order-review__cart"></div>
+      <div className="order-review__cart">
+        <Cart cart={cart}>
+          <div className="cart__buttons">
+            <button
+              type="button"
+              className="cart__btn cart__btn--danger mb-3"
+            >
+              <span>Clear Cart</span>
+              <FaTrash className="cart__btn-icon" />
+            </button>
+            <Link to="/order-review">
+              <button type="button" className="cart__btn cart__btn--yellow">
+                <span>Proceed Checkout</span>
+                <FaRegCreditCard className="cart__btn-icon" />
+              </button>
+            </Link>
+          </div>
+        </Cart>
+      </div>
     </section>
   );
 };
