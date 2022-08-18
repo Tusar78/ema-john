@@ -1,34 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { AiOutlineArrowRight, AiOutlineDelete } from "react-icons/ai";
-import { addToDB, getLocalStorage } from "../../FakeDB/FakeDB";
+import { addToDB } from "../../FakeDB/FakeDB";
+import useCart from "../../Hooks/useCart";
 import useProducts from "../../Hooks/useProducts";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 
 const Shop = () => {
-  // const [products, setProducts] = useState([]);
   const [products, setProducts] = useProducts();
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useCart(products);
 
-  // useEffect(() => {
-  //   fetch("fakeData/products.json")
-  //     .then((res) => res.json())
-  //     .then((data) => setProducts(data));
-  // }, []);
-
-  useEffect(() => {
-    const storedCart = getLocalStorage();
-    const saveCart = [];
-    for (const id in storedCart) {
-      const rest = products.find((product) => product.id === id);
-      if (rest) {
-        const quantity = storedCart[id];
-        rest.quantity = quantity;
-        saveCart.push(rest);
-      }
-    }
-    setCart(saveCart);
-  }, [products]);
   const handleAddToCart = (selectedProduct) => {
     let newCart = [];
     const exits = cart.find((product) => product.id === selectedProduct.id);
