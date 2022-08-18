@@ -146,6 +146,40 @@
     @apply text-xl;
   }
 
+  /* Order Review Section */
+  .order-review {
+    @apply max-w-screen-lg px-4 lg:px-0 mt-24 mx-auto;
+  }
+
+  .order-review__item {
+    @apply border rounded-md p-2 flex justify-between items-center;
+  }
+  
+  .order-review__item-info {
+    @apply flex space-x-3;
+  }
+
+  .order-review__img {
+    @apply w-16 h-16 rounded-md
+  }
+
+  .order-review__name {
+    @apply text-base;
+  }
+
+  .order-review__price,
+  .order-review__shipping {
+    @apply text-xs;
+  }  
+
+  .order-review__item-delete-btn {
+    @apply w-10 h-10 flex items-center justify-center bg-[#EB5757]/30 rounded-full outline-none cursor-pointer;
+  }
+
+  .order-review__icon {
+    @apply text-base text-[#EB5757];
+  }
+
 }
 
 @layer utilities {
