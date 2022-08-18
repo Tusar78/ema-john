@@ -1,6 +1,7 @@
 import React from "react";
 import { AiOutlineArrowRight, AiOutlineDelete } from "react-icons/ai";
-import { addToDB } from "../../FakeDB/FakeDB";
+import { Link } from "react-router-dom";
+import { addToDB, clearLocalStorage } from "../../FakeDB/FakeDB";
 import useCart from "../../Hooks/useCart";
 import useProducts from "../../Hooks/useProducts";
 import Cart from "../Cart/Cart";
@@ -25,6 +26,11 @@ const Shop = () => {
     addToDB(selectedProduct.id);
   };
 
+  const clearCart = () => {
+    setCart([]);
+    clearLocalStorage();
+  };
+
   return (
     <section className="shop">
       <div className="products">
@@ -42,14 +48,20 @@ const Shop = () => {
       <div className="cart-info">
         <Cart cart={cart}>
           <div className="cart__buttons">
-            <button type="button" className="cart__btn cart__btn--danger">
+            <button
+              type="button"
+              className="cart__btn cart__btn--danger mb-3"
+              onClick={clearCart}
+            >
               <span>Clear Cart</span>
               <AiOutlineDelete className="cart__btn-icon" />
             </button>
-            <button type="button" className="cart__btn cart__btn--yellow">
-              <span>Review Order</span>
-              <AiOutlineArrowRight className="cart__btn-icon" />
-            </button>
+            <Link to="/order-review">
+              <button type="button" className="cart__btn cart__btn--yellow">
+                <span>Review Order</span>
+                <AiOutlineArrowRight className="cart__btn-icon" />
+              </button>
+            </Link>
           </div>
         </Cart>
       </div>
