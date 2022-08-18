@@ -1,58 +1,74 @@
-import React, { useEffect, useState } from 'react';
-import { addToDB, getLocalStorage } from '../../FakeDB/FakeDB';
-import Cart from '../Cart/Cart';
-import Product from '../Product/Product';
+import React, { useEffect, useState } from "react";
+import { AiOutlineArrowRight, AiOutlineDelete } from "react-icons/ai";
+import { addToDB, getLocalStorage } from "../../FakeDB/FakeDB";
+import Cart from "../Cart/Cart";
+import Product from "../Product/Product";
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    fetch('fakeData/products.json')
-      .then(res => res.json())
-      .then(data => setProducts(data))
-  }, [])
+    fetch("fakeData/products.json")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
 
   useEffect(() => {
     const storedCart = getLocalStorage();
     const saveCart = [];
     for (const id in storedCart) {
-      const rest = products.find(product => product.id === id);
+      const rest = products.find((product) => product.id === id);
       if (rest) {
         const quantity = storedCart[id];
         rest.quantity = quantity;
-        saveCart.push(rest)
+        saveCart.push(rest);
       }
     }
-    setCart(saveCart)
-  }, [products])
-  const handleAddToCart = selectedProduct => {
+    setCart(saveCart);
+  }, [products]);
+  const handleAddToCart = (selectedProduct) => {
     let newCart = [];
-    const exits = cart.find(product => product.id === selectedProduct.id);
+    const exits = cart.find((product) => product.id === selectedProduct.id);
     if (!exits) {
       selectedProduct.quantity = 1;
       newCart = [...cart, selectedProduct];
     } else {
-      const rest = cart.filter(product => product.id !== selectedProduct.id);
+      const rest = cart.filter((product) => product.id !== selectedProduct.id);
       exits.quantity += 1;
-      newCart = [...rest, exits]
+      newCart = [...rest, exits];
     }
-    setCart(newCart)
-    addToDB(selectedProduct.id)
-  }
+    setCart(newCart);
+    addToDB(selectedProduct.id);
+  };
 
   return (
-    <section className='shop'>
+    <section className="shop">
       <div className="products">
         <div className="product__container">
-          {
-            products.map(product => <Product key={product.id} product={product} handleAddToCart={handleAddToCart} />)
-          }
+          {products.map((product) => (
+            <Product
+              key={product.id}
+              product={product}
+              handleAddToCart={handleAddToCart}
+            />
+          ))}
         </div>
         <div className="blank"></div>
       </div>
       <div className="cart-info">
-        <Cart cart={cart} />
+        <Cart cart={cart}>
+          <div className="cart__buttons">
+            <button type="button" className="cart__btn cart__btn--danger">
+              <span>Clear Cart</span>
+              <AiOutlineDelete className="cart__btn-icon" />
+            </button>
+            <button type="button" className="cart__btn cart__btn--yellow">
+              <span>Review Order</span>
+              <AiOutlineArrowRight className="cart__btn-icon" />
+            </button>
+          </div>
+        </Cart>
       </div>
     </section>
   );

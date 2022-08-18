@@ -1,7 +1,7 @@
 import React from 'react';
-import { AiOutlineDelete, AiOutlineArrowRight } from 'react-icons/ai'
+// import { AiOutlineDelete, AiOutlineArrowRight } from 'react-icons/ai'
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, children }) => {
   let quantity = 0,
       total = 0,
       shipping = 0;
@@ -23,7 +23,7 @@ const Cart = ({ cart }) => {
         <p className='card__desc-single'>Tax: ${tax}</p>
       </div>
       <h5 className="cart__grand-total">Grand Total: ${grandTotal}</h5>
-      <div className="cart__buttons">
+      {/* <div className="cart__buttons">
         <button type="button" className="cart__btn cart__btn--danger">
           <span>Clear Cart</span>
           <AiOutlineDelete className='cart__btn-icon' />
@@ -32,7 +32,10 @@ const Cart = ({ cart }) => {
           <span>Review Order</span>
           <AiOutlineArrowRight className='cart__btn-icon' />
         </button>
-      </div>
+      </div> */}
+      {
+        children
+      }
     </div>
   );
 };
