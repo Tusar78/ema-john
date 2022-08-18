@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiOutlineDelete, AiOutlineArrowRight } from 'react-icons/ai'
 
 const Cart = ({ cart, children }) => {
   let quantity = 0,
