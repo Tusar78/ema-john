@@ -2,7 +2,17 @@ import React from 'react';
 import { AiOutlineDelete, AiOutlineArrowRight } from 'react-icons/ai'
 
 const Cart = ({ cart }) => {
-  
+  let quantity = 0,
+      total = 0,
+      shipping = 0;
+  for (const product of cart) {
+    quantity += product.quantity;
+    total += product.price * product.quantity;
+    shipping += product.shipping;
+  }
+
+  const tax = parseFloat((total * 0.1).toFixed(2));
+  const grandTotal = total + shipping + tax;
   return (
     <div className='cart'>
       <h4 className="cart__summery">Order Summery</h4>
