@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { MdOutlineMenu, MdOutlineClose } from "react-icons/md";
 
 const Navbar = () => {
@@ -10,35 +11,35 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <nav className="nav">
-        <a href="#home" className="nav__logo">
+        <Link to="/" className="nav__logo">
           <img
             src="images/logo.svg"
             alt="Website Logo"
             className="nav__logo-img"
           />
-        </a>
+        </Link>
 
         <div className={toggle ? "nav__menu block" : "nav__menu hidden sm:block"}>
           <ul className="nav__list">
             <li className="nav__item">
-              <a href="#order" className="nav__link">
+              <Link to="/order" className="nav__link">
                 Order
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
-              <a href="#order-review" className="nav__link">
+              <Link to="/order-review" className="nav__link">
                 Order Review
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
-              <a href="#manage-inventory" className="nav__link">
+              <Link to="/manage-inventory" className="nav__link">
                 Manage Inventory
-              </a>
+              </Link>
             </li>
             <li className="nav__item">
-              <a href="#login" className="nav__link">
+              <Link to="/login" className="nav__link">
                 Login
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

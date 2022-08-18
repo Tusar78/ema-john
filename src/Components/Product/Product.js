@@ -1,7 +1,7 @@
 import React from "react";
 import { FaCartPlus } from "react-icons/fa";
 
-const Product = ({ product, handleClick }) => {
+const Product = ({ product, handleAddToCart }) => {
   const { img, name, price, seller, ratings } = product;
   return (
     <div className="product">
@@ -17,7 +17,7 @@ const Product = ({ product, handleClick }) => {
         <p className="product__rating">Rating: {ratings}</p>
       </div>
 
-      <button type="button" className="product__btn" onClick={() => handleClick(product)}>
+      <button type="button" className="product__btn" onClick={() => handleAddToCart(product)}>
         <span>Add to cart</span>
         <FaCartPlus className="product__icon" />
       </button>
