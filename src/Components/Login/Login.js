@@ -91,7 +91,7 @@ const Login = () => {
             <span className="form__loginRegister-demo"></span>
             <div className="flex">
               <span className="form__loginRegister-demo">
-                {toggle ? "New To Ema-John?" : "Already have an account?"}
+                {toggle ? "Already have an account?" : "New To Ema-John?"}
               </span>
 
               <input

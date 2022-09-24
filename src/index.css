@@ -234,7 +234,7 @@
   }
 
   .form {
-    @apply max-w-sm w-full mx-auto px-8 py-10 rounded-lg justify-self-center;
+    @apply max-w-sm  w-full mx-auto px-8 py-10 rounded-lg justify-self-center;
   }
 
   .form__title {
