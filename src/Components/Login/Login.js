@@ -1,13 +1,16 @@
 import React from "react";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import auth from "../../firebase.init";
 
 const Login = () => {
   const [toggle, setToggle] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmedPassword, setConfirmedPassword] = useState('');
-  // const [error, setError] = useState('');
+  const [error, setError] = useState('');
+
+  const [ createUserWithEmailAndPassword ] = useCreateUserWithEmailAndPassword(auth);
 
   const handleEmailBlur = e => {
     setEmail(e.target.value);
@@ -25,7 +28,17 @@ const Login = () => {
 
   const handleSignUp = e => {
     e.preventDefault();
-    console.log(email, password, confirmedPassword);
+    if (password !== confirmedPassword) {
+      setError('Password not match');
+      return;
+    }
+
+    if (password < 6) {
+      setError('Password should be more than 6 character!');
+      return;
+    }
+
+    createUserWithEmailAndPassword(email, password);
   }
 
   const handleCheckbox = (e) => {
