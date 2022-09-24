@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { MdOutlineMenu, MdOutlineClose } from "react-icons/md";
 
 const Navbar = () => {
@@ -19,27 +19,40 @@ const Navbar = () => {
           />
         </Link>
 
-        <div className={toggle ? "nav__menu block" : "nav__menu hidden sm:block"}>
+        <div
+          className={toggle ? "nav__menu block" : "nav__menu hidden sm:block"}
+        >
           <ul className="nav__list">
             <li className="nav__item">
-              <Link to="/order" className="nav__link">
+              <NavLink
+                to="/order"
+                className={({ isActive }) =>
+                  isActive ? 'nav__link text-yellow-400' : 'nav__link'
+                }
+              >
                 Order
-              </Link>
+              </NavLink>
             </li>
             <li className="nav__item">
-              <Link to="/order-review" className="nav__link">
+              <NavLink to="/order-review" className={({ isActive }) =>
+                  isActive ? 'nav__link text-yellow-400' : 'nav__link'
+                }>
                 Order Review
-              </Link>
+              </NavLink>
             </li>
             <li className="nav__item">
-              <Link to="/manage-inventory" className="nav__link">
+              <NavLink to="/manage-inventory" className={({ isActive }) =>
+                  isActive ? 'nav__link text-yellow-400' : 'nav__link'
+                }>
                 Manage Inventory
-              </Link>
+              </NavLink>
             </li>
             <li className="nav__item">
-              <Link to="/login" className="nav__link">
+              <NavLink to="/login" className={({ isActive }) =>
+                  isActive ? 'nav__link text-yellow-400' : 'nav__link'
+                }>
                 Login
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>

@@ -34,7 +34,7 @@
 
   /*==== Home Section Design ====*/
   .home {
-    @apply py-8 h-screen max-w-screen-xl mx-auto grid sm:grid-cols-2 items-center px-4 xl:px-0;
+    @apply py-28 max-w-screen-xl mx-auto grid sm:grid-cols-2 items-center px-4 xl:px-0;
   }
 
   .home__info {
