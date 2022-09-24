@@ -4,10 +4,29 @@ import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const [toggle, setToggle] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmedPassword, setConfirmedPassword] = useState('');
+  // const [error, setError] = useState('');
+
+  const handleEmailBlur = e => {
+    setEmail(e.target.value);
+  }
+  const handlePasswordBlur = e => {
+    setPassword(e.target.value);
+  }
+  const handleConfirmedPasswordBlur = e => {
+    setConfirmedPassword(e.target.value);
+  }
 
   const handleSignIn = (e) => {
     e.preventDefault();
   };
+
+  const handleSignUp = e => {
+    e.preventDefault();
+    console.log(email, password, confirmedPassword);
+  }
 
   const handleCheckbox = (e) => {
     setToggle(e.target.checked);
@@ -18,7 +37,7 @@ const Login = () => {
       <div className="form-container">
         <div className="form">
           {toggle ? (
-            <form>
+            <form onClick={handleSignUp}>
               <h2 className="form__title">Sign Up</h2>
               <div className="form__group">
                 <label htmlFor="email" className="form__label">
@@ -29,6 +48,8 @@ const Login = () => {
                   name="email"
                   id="email"
                   className="form__input email"
+                  onBlur={handleEmailBlur}
+                  required
                 />
               </div>
               <div className="form__group">
@@ -40,6 +61,7 @@ const Login = () => {
                   name="password"
                   id="password"
                   className="form__input password"
+                  onBlur={handlePasswordBlur}
                 />
               </div>
               <div className="form__group">
@@ -51,6 +73,7 @@ const Login = () => {
                   name="confirmed-password"
                   id="confirmedPassword"
                   className="form__input confirmed-password"
+                  onBlur={handleConfirmedPasswordBlur}
                 />
               </div>
               <button type="submit" className="form__button">
