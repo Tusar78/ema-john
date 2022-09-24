@@ -27,7 +27,7 @@ const Navbar = () => {
               <NavLink
                 to="/order"
                 className={({ isActive }) =>
-                  isActive ? 'nav__link text-yellow-400' : 'nav__link'
+                  isActive ? 'nav__link text-[#FF9900]' : 'nav__link'
                 }
               >
                 Order
@@ -35,21 +35,21 @@ const Navbar = () => {
             </li>
             <li className="nav__item">
               <NavLink to="/order-review" className={({ isActive }) =>
-                  isActive ? 'nav__link text-yellow-400' : 'nav__link'
+                  isActive ? 'nav__link text-[#FF9900]' : 'nav__link'
                 }>
                 Order Review
               </NavLink>
             </li>
             <li className="nav__item">
               <NavLink to="/manage-inventory" className={({ isActive }) =>
-                  isActive ? 'nav__link text-yellow-400' : 'nav__link'
+                  isActive ? 'nav__link text-[#FF9900]' : 'nav__link'
                 }>
                 Manage Inventory
               </NavLink>
             </li>
             <li className="nav__item">
               <NavLink to="/login" className={({ isActive }) =>
-                  isActive ? 'nav__link text-yellow-400' : 'nav__link'
+                  isActive ? 'nav__link text-[#FF9900]' : 'nav__link'
                 }>
                 Login
               </NavLink>

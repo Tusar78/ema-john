@@ -123,7 +123,7 @@
   }
 
   .cart__grand-total {
-    @apply text-xl text-[#0E161A] mt-6; 
+    @apply text-xl text-[#0E161A] mt-6;
   }
 
   .cart__buttons {
@@ -158,7 +158,7 @@
   .order-review__item {
     @apply border rounded-md p-2 flex justify-between items-center md:h-20 lg:h-min lg:pr-3;
   }
-  
+
   .order-review__item-info {
     @apply flex space-x-3;
   }
@@ -174,7 +174,7 @@
   .order-review__price,
   .order-review__shipping {
     @apply text-xs lg:text-sm;
-  }  
+  }
 
   .order-review__price {
     @apply flex items-center space-x-2;
@@ -196,7 +196,9 @@
     @apply bg-[#FF9900]/30 p-4 rounded-md md:max-h-[27rem] lg:w-[400px] lg:max-h-[29rem];
   }
 
-  .order-review__cart .cart .card__description, .order-review__cart .cart .cart__summery, .order-review__cart .cart .cart__grand-total  {
+  .order-review__cart .cart .card__description,
+  .order-review__cart .cart .cart__summery,
+  .order-review__cart .cart .cart__grand-total {
     @apply px-5;
   }
 
@@ -216,11 +218,73 @@
     @apply justify-between px-4;
   }
 
+  /* Manage Inventory */
+  .manage-inventory {
+    @apply h-screen max-w-screen-lg grid place-items-center mx-auto;
+  }
+
+  .inventory__text {
+    @apply text-5xl font-light text-[#2A414F] text-center;
+  }
+
+  /* Login section */
+  /* Form Design */
+  .form-container {
+    @apply pt-32 pb-12;
+  }
+
+  .form {
+    @apply max-w-sm w-full mx-auto px-8 py-10 rounded-lg justify-self-center;
+  }
+
+  .form__title {
+    @apply text-center text-2xl text-[#2A414F] font-semibold mb-8;
+  }
+
+  .form__group {
+    @apply mb-4;
+  }
+
+  .form__label {
+    @apply text-base text-[#2A414F] block ml-2;
+  }
+
+  .form__input {
+    @apply border border-[#2A414F]/70 w-full py-2 px-3 rounded-lg outline-none lg:py-3;
+  }
+
+  .form__button {
+    @apply mt-5 w-full py-2 bg-[#FF9900]/30 rounded-lg text-[#0E161A] font-medium lg:py-3;
+  }
+
+  .form__login-register {
+    @apply flex items-center mt-2 justify-center;
+  }
+
+  .form__loginRegister-demo {
+    @apply text-[#2A414F] text-xs mr-1;
+  }
+
+  .form__loginRegister-text {
+    @apply text-[#FF9900] text-xs cursor-pointer;
+  }
+
+  .form__divider {
+    @apply my-6 text-center text-[#95A0A7] relative;
+  }
+
+  .form__google-btn {
+    @apply border border-[#95A0A7] rounded-lg py-2 flex w-full justify-center relative cursor-pointer lg:py-3;
+  }
+
+  .form__google-btn-icon {
+    @apply mr-1 text-2xl lg:top-[0.7rem] lg:text-[26px];
+  }
 }
 
 @layer utilities {
   body {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
   }
   /*==== Navbar Design ====*/
   .nav__logo-img {
@@ -249,12 +313,33 @@
 
   /*==== Shop Section design ====*/
   .product__container {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
   @media screen and (min-width: 1023.98px) {
     .order-review {
       grid-template-columns: 1fr auto;
     }
+  }
+
+  /* Form Design */
+  .form {
+    box-shadow: -10px 10px 0 #FFE0B3;
+    border: 1px solid #95A0A7;
+  }
+
+  .form__divider::before,
+  .form__divider::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 40%;
+    height: 1px;
+    background: #95A0A7;
+  }
+
+  .form__divider::after{
+    left: 60%;
   }
 }
