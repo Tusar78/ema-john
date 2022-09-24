@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import auth from "../../firebase.init";
 
 const Login = () => {
   const [toggle, setToggle] = useState(false);
@@ -10,7 +9,6 @@ const Login = () => {
   const [confirmedPassword, setConfirmedPassword] = useState('');
   const [error, setError] = useState('');
 
-  const [ createUserWithEmailAndPassword ] = useCreateUserWithEmailAndPassword(auth);
 
   const handleEmailBlur = e => {
     setEmail(e.target.value);
@@ -38,7 +36,6 @@ const Login = () => {
       return;
     }
 
-    createUserWithEmailAndPassword(email, password);
   }
 
   const handleCheckbox = (e) => {
