@@ -1,13 +1,46 @@
 import React from "react";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { auth } from "../../firebase.init";
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmedPassword, setConfirmedPassword] = useState('');
+  const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth);
+  const navigate = useNavigate();
+
+  const handleEmailBlur = (e) => {
+    setEmail(e.target.value);
+  }
+
+  const handlePasswordBlur = e => {
+    setPassword(e.target.value);
+  }
+
+  const handleConfirmedPassword = e => {
+    setConfirmedPassword(e.target.value);
+  }
 
   const handleSignUp = (e) => {
     e.preventDefault();
+
+    if (password !== confirmedPassword) {
+      return;
+    }
+
+    if (password < 6) {
+      return
+    }
+
+    createUserWithEmailAndPassword(email, password);
   };
+
+  if (user) {
+    navigate('/');
+  }
 
   return (
     <section className="section">
@@ -24,6 +57,7 @@ const Login = () => {
                   name="email"
                   id="email"
                   className="form__input email"
+                  onBlur={handleEmailBlur}
                   required
                 />
               </div>
@@ -36,6 +70,7 @@ const Login = () => {
                   name="password"
                   id="password"
                   className="form__input password"
+                  onBlur={handlePasswordBlur}
                 />
               </div>
               <div className="form__group">
@@ -47,6 +82,7 @@ const Login = () => {
                   name="confirmed-password"
                   id="confirmedPassword"
                   className="form__input confirmed-password"
+                  onBlur={handleConfirmedPassword}
                 />
               </div>
               <button type="submit" className="form__button">
