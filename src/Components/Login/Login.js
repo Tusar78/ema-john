@@ -1,42 +1,46 @@
 import React from "react";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase.init.js";
 
 const Login = () => {
   const [toggle, setToggle] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmedPassword, setConfirmedPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmedPassword, setConfirmedPassword] = useState("");
+  const [error, setError] = useState("");
 
+  const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
 
-  const handleEmailBlur = e => {
+  const handleEmailBlur = (e) => {
     setEmail(e.target.value);
-  }
-  const handlePasswordBlur = e => {
+  };
+  const handlePasswordBlur = (e) => {
     setPassword(e.target.value);
-  }
-  const handleConfirmedPasswordBlur = e => {
+  };
+  const handleConfirmedPasswordBlur = (e) => {
     setConfirmedPassword(e.target.value);
-  }
+  };
 
   const handleSignIn = (e) => {
     e.preventDefault();
   };
 
-  const handleSignUp = e => {
+  const handleSignUp = (e) => {
     e.preventDefault();
     if (password !== confirmedPassword) {
-      setError('Password not match');
+      setError("Password not match");
       return;
     }
 
     if (password < 6) {
-      setError('Password should be more than 6 character!');
+      setError("Password should be more than 6 character!");
       return;
     }
 
-  }
+    createUserWithEmailAndPassword(email, password);
+  };
 
   const handleCheckbox = (e) => {
     setToggle(e.target.checked);
