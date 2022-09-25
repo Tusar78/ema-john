@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase.init.js";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [toggle, setToggle] = useState(false);
@@ -10,8 +11,13 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [confirmedPassword, setConfirmedPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
-  const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth);
+
+  if (user) {
+    navigate('/')
+  }
 
   const handleEmailBlur = (e) => {
     setEmail(e.target.value);
