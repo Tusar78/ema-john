@@ -1,9 +1,21 @@
 import React from "react";
-// import { useState } from "react";
+import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleEmailBlur = e => {
+    setEmail(e.target.value);
+  }
+
+  const handlePasswordBlur = (e) => {
+    setPassword(e.target.value);
+  }
+
   const handleSignIn = (e) => {
     e.preventDefault();
   };
