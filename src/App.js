@@ -3,6 +3,7 @@ import Header from "./Components/Header/Header";
 import Home from "./Components/Home/Home";
 import Inventory from "./Components/Inventory/Inventory";
 import Login from "./Components/Login/Login";
+import Registration from "./Components/Registration/Registration";
 import NotFound from "./Components/NotFound/NotFound";
 import Order from "./Components/Order/Order";
 import Shop from "./Components/Shop/Shop";
@@ -18,6 +19,7 @@ function App() {
         <Route path="/order-review" element={<Order />} />
         <Route path="/manage-inventory" element={<Inventory />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Registration />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
