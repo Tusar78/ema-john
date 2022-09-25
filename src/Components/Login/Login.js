@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase.init";
 
@@ -10,6 +10,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+  const navigate = useNavigate();
 
   const handleEmailBlur = (e) => {
     setEmail(e.target.value);
@@ -24,6 +26,10 @@ const Login = () => {
 
     signInWithEmailAndPassword(email, password);
   };
+
+  if (user) {
+    navigate('/');
+  }
 
   return (
     <section className="section">
