@@ -3,21 +3,26 @@ import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase.init";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
 
-  const handleEmailBlur = e => {
+  const handleEmailBlur = (e) => {
     setEmail(e.target.value);
-  }
+  };
 
   const handlePasswordBlur = (e) => {
     setPassword(e.target.value);
-  }
+  };
 
   const handleSignIn = (e) => {
     e.preventDefault();
+
+    signInWithEmailAndPassword(email, password);
   };
 
   return (
@@ -35,6 +40,7 @@ const Login = () => {
                 name="email"
                 id="email"
                 className="form__input email"
+                onBlur={handleEmailBlur}
               />
             </div>
             <div className="form__group">
@@ -46,6 +52,7 @@ const Login = () => {
                 name="password"
                 id="password"
                 className="form__input password"
+                onBlur={handlePasswordBlur}
               />
             </div>
             <button type="submit" className="form__button">
@@ -56,7 +63,7 @@ const Login = () => {
             <span className="form__loginRegister-demo"></span>
             <div className="flex">
               <span className="form__loginRegister-demo">New To Ema-John?</span>
-              <Link className="form__loginRegister-text" to="/registration">                
+              <Link className="form__loginRegister-text" to="/registration">
                 Create An Account.
               </Link>
             </div>
