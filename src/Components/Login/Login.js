@@ -61,6 +61,12 @@ const Login = () => {
                 onBlur={handlePasswordBlur}
               />
             </div>
+            {
+              error && <p className="text-red-400">{error.message}</p>
+            }
+            {
+              loading && <p className="text-green-400">Loading...</p>
+            }
             <button type="submit" className="form__button">
               Login
             </button>
