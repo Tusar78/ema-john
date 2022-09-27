@@ -64,21 +64,19 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav__item">
-              {user ? (
-                <>
-                  <button className="nav__link" onClick={handleSignOut}>SignOut</button>
-                </>
+              {user?.uid ? (
+                <button className="nav__link" onClick={handleSignOut}>
+                  SignOut
+                </button>
               ) : (
-                <>
-                  <NavLink
-                    to="/login"
-                    className={({ isActive }) =>
-                      isActive ? "nav__link text-[#FF9900]" : "nav__link"
-                    }
-                  >
-                    Login
-                  </NavLink>
-                </>
+                <NavLink
+                  to="/login"
+                  className={({ isActive }) =>
+                    isActive ? "nav__link text-[#FF9900]" : "nav__link"
+                  }
+                >
+                  Login
+                </NavLink>
               )}
             </li>
           </ul>
