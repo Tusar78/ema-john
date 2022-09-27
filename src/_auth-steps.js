@@ -15,8 +15,9 @@
 
 
 /** Firebase hosting steps
- * yarn add firebase-tools
- * firebase login
- * firebase init
- * firebase deploy
+ * yarn add firebase-tools [one time for your computer]
+ * firebase login [one time for your computer]
+ * firebase init [one time for each project]
+ * firebase build [every tme you want to deploy]
+ * firebase deploy [every tme you want to deploy]
  */
