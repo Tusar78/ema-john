@@ -12,3 +12,11 @@
  * 11, Create RequireAuth component ==> check user exists also tract user location.
  * 12, in route rap protected component by using RequireAuth component.
  */
+
+
+/** Firebase hosting steps
+ * yarn add firebase-tools
+ * firebase login
+ * firebase init
+ * firebase deploy
+ */
