@@ -7,12 +7,10 @@ import { signOut } from "firebase/auth";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
-  const user = useAuthState(auth);
+  const [ user ] = useAuthState(auth);
 
   const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {})
-      .catch((error) => {});
+    signOut(auth);
   };
 
   const handleToggle = () => {
@@ -64,11 +62,11 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav__item">
-              {user?.uid ? (
-                <button className="nav__link" onClick={handleSignOut}>
+              {user ? 
+                <button onClick={handleSignOut} type="button" className="nav__link">
                   SignOut
                 </button>
-              ) : (
+              : 
                 <NavLink
                   to="/login"
                   className={({ isActive }) =>
@@ -77,7 +75,7 @@ const Navbar = () => {
                 >
                   Login
                 </NavLink>
-              )}
+              }
             </li>
           </ul>
         </div>
