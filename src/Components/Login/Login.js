@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase.init";
 
@@ -27,8 +27,11 @@ const Login = () => {
     signInWithEmailAndPassword(email, password);
   };
 
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || '/';
+
   if (user) {
-    navigate('/');
+    navigate(from, {replace: true});
   }
 
   return (

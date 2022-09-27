@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { MdOutlineMenu, MdOutlineClose } from "react-icons/md";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase.init";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const user = useAuthState(auth);
 
   const handleToggle = () => {
     setToggle(!toggle);
@@ -27,32 +30,49 @@ const Navbar = () => {
               <NavLink
                 to="/order"
                 className={({ isActive }) =>
-                  isActive ? 'nav__link text-[#FF9900]' : 'nav__link'
+                  isActive ? "nav__link text-[#FF9900]" : "nav__link"
                 }
               >
                 Order
               </NavLink>
             </li>
             <li className="nav__item">
-              <NavLink to="/order-review" className={({ isActive }) =>
-                  isActive ? 'nav__link text-[#FF9900]' : 'nav__link'
-                }>
+              <NavLink
+                to="/order-review"
+                className={({ isActive }) =>
+                  isActive ? "nav__link text-[#FF9900]" : "nav__link"
+                }
+              >
                 Order Review
               </NavLink>
             </li>
             <li className="nav__item">
-              <NavLink to="/manage-inventory" className={({ isActive }) =>
-                  isActive ? 'nav__link text-[#FF9900]' : 'nav__link'
-                }>
+              <NavLink
+                to="/manage-inventory"
+                className={({ isActive }) =>
+                  isActive ? "nav__link text-[#FF9900]" : "nav__link"
+                }
+              >
                 Manage Inventory
               </NavLink>
             </li>
             <li className="nav__item">
-              <NavLink to="/login" className={({ isActive }) =>
-                  isActive ? 'nav__link text-[#FF9900]' : 'nav__link'
-                }>
-                Login
-              </NavLink>
+              {user ? (
+                <>
+                  <button className="nav__link">SignOut</button>
+                </>
+              ) : (
+                <>
+                  <NavLink
+                    to="/login"
+                    className={({ isActive }) =>
+                      isActive ? "nav__link text-[#FF9900]" : "nav__link"
+                    }
+                  >
+                    Login
+                  </NavLink>
+                </>
+              )}
             </li>
           </ul>
         </div>
