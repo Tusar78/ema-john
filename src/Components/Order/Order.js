@@ -39,7 +39,7 @@ const Order = () => {
               <span>Clear Cart</span>
               <FaTrash className="cart__btn-icon" />
             </button>
-            <Link to="/manage-inventory">
+            <Link to="/shipping">
               <button type="button" className="cart__btn cart__btn--yellow">
                 <span>Proceed Checkout</span>
                 <FaRegCreditCard className="cart__btn-icon" />
