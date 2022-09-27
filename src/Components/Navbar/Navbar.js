@@ -3,10 +3,17 @@ import { Link, NavLink } from "react-router-dom";
 import { MdOutlineMenu, MdOutlineClose } from "react-icons/md";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase.init";
+import { signOut } from "firebase/auth";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const user = useAuthState(auth);
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {})
+      .catch((error) => {});
+  };
 
   const handleToggle = () => {
     setToggle(!toggle);
