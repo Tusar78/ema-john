@@ -280,6 +280,35 @@
   .form__google-btn-icon {
     @apply mr-1 text-2xl lg:top-[0.7rem] lg:text-[26px];
   }
+
+  /* shipping design */
+  .shipping {
+    @apply max-w-screen-sm pt-24 mx-auto px-4 xl:px-0;
+  }
+
+  .shipping__title {
+    @apply text-2xl text-amber-400 mb-6;
+  }
+
+  .shipping-form {
+    @apply border border-purple-300 p-4 rounded-md;
+  }
+
+  .shipping__group {
+    @apply mb-4
+  }
+
+  .shipping__label {
+    @apply text-base tracking-wider mb-1 pl-1 block;
+  }
+
+  .shipping__input {
+    @apply px-3 py-2 border border-purple-300 rounded-md outline-none w-full;
+  }
+
+  .shipping__button {
+    @apply w-full py-2 text-center font-semibold text-[#FF9900] bg-[#FF9900]/20 rounded-md hover:bg-[#FF9900] hover:text-white;
+  }
 }
 
 @layer utilities {
