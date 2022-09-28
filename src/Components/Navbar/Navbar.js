@@ -7,7 +7,7 @@ import { signOut } from "firebase/auth";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
-  const [ user ] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   const handleSignOut = () => {
     signOut(auth);
@@ -21,7 +21,7 @@ const Navbar = () => {
       <nav className="nav">
         <Link to="/" className="nav__logo">
           <img
-            src="images/logo.svg"
+            src="https://raw.githubusercontent.com/Tusar78/ema-john/9cefe58bdba070bd172efff7cdef3f8f3bc929c3/public/images/Logo.svg"
             alt="Website Logo"
             className="nav__logo-img"
           />
@@ -62,11 +62,15 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav__item">
-              {user ? 
-                <button onClick={handleSignOut} type="button" className="nav__link">
+              {user ? (
+                <button
+                  onClick={handleSignOut}
+                  type="button"
+                  className="nav__link"
+                >
                   SignOut
                 </button>
-              : 
+              ) : (
                 <NavLink
                   to="/login"
                   className={({ isActive }) =>
@@ -75,7 +79,7 @@ const Navbar = () => {
                 >
                   Login
                 </NavLink>
-              }
+              )}
             </li>
           </ul>
         </div>
